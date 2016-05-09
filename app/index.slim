@@ -10,4 +10,51 @@ html lang="en-US" dir="ltr"
 
 		script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
 
+		javascript:
+			// This is to use the Brutal Type webfont (on a trial basis - not production code)
+		    (function() {
+		        var path = '//easy.myfonts.net/v2/js?sid=254649(font-family=Brutal+Type+Extra+Light)&sid=254651(font-family=Brutal+Type+Bold)&sid=254653(font-family=Brutal+Type+Medium)&sid=254654(font-family=Brutal+Type)&key=0DRkRUB2d3',
+		            protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
+		            trial = document.createElement('script');
+		        trial.type = 'text/javascript';
+		        trial.async = true;
+		        trial.src = protocol + path;
+		        var head = document.getElementsByTagName("head")[0];
+		        head.appendChild(trial);
+		    })();
+
 	body
+		header
+			img src="images/epic-logo-40x46.png" alt="Epic Games"
+			a.button href="#" Download
+
+		main
+			section#hero
+				h1 Paragon
+					span Early Access Now Available
+
+			section#about
+				h1 About
+				h2 Everything We Do Is Epic.
+				p We're in the business of creating fun games we want to play, and the mind-blowing art and tech we need to bring those games to life. We consistently strive to stay on the cutting edge of our industry. So we iterate to improve everything, every day: our games, our technology, our processes, even our workplace and people. This unrelenting focus on innovation and quality defines us.
+				footer
+					|Everything We Do Is Epic | People Matter Most | Lead By Example | Making Games Is Fun
+
+			section#locations
+
+			section#contact
+				h1 Contact Us
+				p We welcome anyone who plays our games or uses our game technology to engage with us at the Epic Games Forums. Our publishers provide technical support for our games, although answers to many commonly asked questions can be found here as well.
+				ul.phone
+					li Tel
+						a(href="tel:+19198540070") +1 919 854 0070
+					li Fax +1 919 854 0055
+
+		footer
+			img src="images/epic-logo-62x72.png" alt="Epic Games"
+			p &copy; 2004-2016, Epic Games, Inc. All rights reserved. Epic, Epic Games, the Epic Games logo, Unreal, Unreal Engine, Unreal Tournament, and the Unreal Tournament 3 logo are trademarks or registered trademarks of Epic Games, Inc. in the United States of America and elsewhere. Other brands or product names are the trademarks of their respective owners.
+			ul
+				li
+					a(href="#") Privacy
+				li
+					a(href="#") Terms of Use
