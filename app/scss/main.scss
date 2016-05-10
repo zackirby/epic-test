@@ -2,6 +2,7 @@
 @import "partials/variables";
 @import "partials/reset";
 @import "partials/grid.min";
+@import "partials/jquery.fullpage";
 
 body {
 	font-family: $body-font;
@@ -9,18 +10,37 @@ body {
 	font-weight: 400;
 	line-height: 1.5;
 	box-sizing: border-box;
+	background: #000;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font;
 	font-weight: 700;
+	line-height: 1;
 }
 
+main > section {
+	@extend .container-fluid;
+	background: $white;
+	overflow: hidden;
+}
+
+a.scroll {
+	width: 35px;
+	height: 20px;
+	background: url(../images/icon-sprite.png) 0 0 no-repeat;
+	overflow: hidden;
+	display: block;
+	margin: 0 auto;
+	position: absolute;
+	left: 48%;
+	top: 80%;
+	z-index: 100;
+}
 
 /**** HEADER ****/
 
 header {
-	@extend .container-fluid;
 	background: $charcoal;
 	padding: 20px 20px 20px 35px;
 	position: fixed;
@@ -47,9 +67,17 @@ header {
 #hero {
 	position: relative;
 	margin-top: 80px;
+	padding: 0;
 	height: 95vh;
-	background: url(../images/paragon-hero.jpg) top center no-repeat;
-	background-size: cover;
+	.access {
+		background: url(../images/paragon-hero.jpg) top center no-repeat;
+	}
+	.download {
+		background: url(../images/paragon_4.jpg) top center no-repeat;
+	}
+	.slide {
+		background-size: cover;
+	}
 
 	h1 {
 		font-size: 38px;
@@ -58,8 +86,9 @@ header {
 		text-transform: uppercase;
 		line-height: 1;
 		position: relative;
-		top: 75%;
+		margin-top: 22%;
 		margin-left: 10%;
+		@include text-shadow(rgba(0,0,0,.75) 2px 2px 0);
 		span {
 			font-size: 28px;
 			color: $silver;
@@ -68,14 +97,90 @@ header {
 		}
 	}
 
-	a.scroll {
-		width: 35px;
-		height: 20px;
-		background: url(../images/icon-sprite.png) 0 0 no-repeat;
-		overflow: hidden;
-		position: absolute;
-		top: 90%;
-		left: 48%;
-		display: block;
+}
+
+/**** ABOUT SECTION ****/
+
+#about {
+	position: relative;
+	height: 95vh;
+	background: url(../images/floating-mtns-bg.jpg) top center no-repeat;
+	background-size: 100%;
+	padding-top: 25%;
+
+	h1 {
+		font-size: 50px;
+		text-transform: uppercase;
+		margin-bottom: 60px;
+	}
+
+	h2 {
+		font-size :28px;
+		text-transform: uppercase;
+		margin-bottom: 30px;
+		line-height: 1.25;
+	}
+
+	p {
+		line-height: 2;
+	}
+
+	.content {
+		@extend .col-md-4;
+		@extend .col-md-push-2;
+	}
+
+	footer {
+		@extend .col-sm-12;
+		text-align: center;
+		position: relative;
+		top: 125px;
+
+		p {
+			font-size: 16px;
+			text-transform: uppercase;
+
+			em {
+				color: $mint;
+			}
+		}
+	}
+}
+
+/**** FOOTER ****/
+
+footer.page-footer {
+	@extend .container-fluid;
+	background: $mineshaft;
+	color: $alto;
+	padding: 96px 90px 96px 120px;
+	font-size: 12px;
+	line-height: 2;
+
+	img {
+		float: left;
+		margin-right: 40px;
+	}
+
+	li {
+		display: inline-block;
+		line-height: 1;
+		padding-right: 5px;
+
+		a {
+			color: $mint;
+			text-transform: uppercase;
+			font-family: $heading-font;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		+ li {
+			border-left: 1px solid $white;
+			padding-left: 5px;
+		}
 	}
 }

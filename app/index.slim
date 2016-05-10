@@ -3,34 +3,47 @@ html lang="en-US" dir="ltr"
 	head
 		meta charset="utf-8"
 		meta name="viewport" content="width=device-width, intial-scale=1, maximum-scale=1, user-scalable=no"
-		title Epic Games FE Test
+		title Test Page
 
 		link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" type="text/css"
 		link rel="stylesheet" href="css/main.css"
 
 		script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
+		script src="js/jquery.fullpage.min.js"
 
 	body
 		header
-			img src="images/epic-logo-40x46.png" alt="Epic Games"
+			a href="http://www.epicgames.com"
+				img src="images/epic-logo-40x46.png" alt="Epic Games"
 			a.button href="#" Download
 
 		main
 			section#hero
-				h1 
-					span Paragon
-					|Early Access Now Available
-				a.scroll(href="#About")
+				a.scroll(href="#")
+				.slide.access
+					h1 
+						span Paragon
+						|Early Access Now Available
+				.slide.download
+					h1
+						span Download
+						|Get Paragon Now!
 
 			section#about
-				h1 About
-				h2 Everything We Do Is Epic.
-				p We're in the business of creating fun games we want to play, and the mind-blowing art and tech we need to bring those games to life. We consistently strive to stay on the cutting edge of our industry. So we iterate to improve everything, every day: our games, our technology, our processes, even our workplace and people. This unrelenting focus on innovation and quality defines us.
+				div.content
+					h1 About
+					h2 
+						|Everything We Do 
+						br
+						|Is Epic.
+					p We're in the business of creating fun games we want to play, and the mind-blowing art and tech we need to bring those games to life. We consistently strive to stay on the cutting edge of our industry. So we iterate to improve everything, every day: our games, our technology, our processes, even our workplace and people. This unrelenting focus on innovation and quality defines us.
 				footer
-					|Everything We Do Is Epic | People Matter Most | Lead By Example | Making Games Is Fun
+					p 
+						em Everything We Do Is Epic 
+						|| People Matter Most | Lead By Example | Making Games Is Fun
 
 			section#locations
-
+				h1 Locations (Coming Soon)
 			section#contact
 				h1 Contact Us
 				p We welcome anyone who plays our games or uses our game technology to engage with us at the Epic Games Forums. Our publishers provide technical support for our games, although answers to many commonly asked questions can be found here as well.
@@ -39,7 +52,7 @@ html lang="en-US" dir="ltr"
 						a(href="tel:+19198540070") +1 919 854 0070
 					li Fax +1 919 854 0055
 
-		footer
+		footer.page-footer
 			img src="images/epic-logo-62x72.png" alt="Epic Games"
 			p &copy; 2004-2016, Epic Games, Inc. All rights reserved. Epic, Epic Games, the Epic Games logo, Unreal, Unreal Engine, Unreal Tournament, and the Unreal Tournament 3 logo are trademarks or registered trademarks of Epic Games, Inc. in the United States of America and elsewhere. Other brands or product names are the trademarks of their respective owners.
 			ul
