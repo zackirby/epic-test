@@ -10,19 +10,6 @@ html lang="en-US" dir="ltr"
 
 		script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
 
-		javascript:
-			// This is to use the Brutal Type webfont (on a trial basis - not production code)
-		    (function() {
-		        var path = '//easy.myfonts.net/v2/js?sid=254649(font-family=Brutal+Type+Extra+Light)&sid=254651(font-family=Brutal+Type+Bold)&sid=254653(font-family=Brutal+Type+Medium)&sid=254654(font-family=Brutal+Type)&key=0DRkRUB2d3',
-		            protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
-		            trial = document.createElement('script');
-		        trial.type = 'text/javascript';
-		        trial.async = true;
-		        trial.src = protocol + path;
-		        var head = document.getElementsByTagName("head")[0];
-		        head.appendChild(trial);
-		    })();
-
 	body
 		header
 			img src="images/epic-logo-40x46.png" alt="Epic Games"
@@ -30,8 +17,10 @@ html lang="en-US" dir="ltr"
 
 		main
 			section#hero
-				h1 Paragon
-					span Early Access Now Available
+				h1 
+					span Paragon
+					|Early Access Now Available
+				a.scroll(href="#About")
 
 			section#about
 				h1 About
@@ -58,3 +47,4 @@ html lang="en-US" dir="ltr"
 					a(href="#") Privacy
 				li
 					a(href="#") Terms of Use
+		script src="js/main.js"

@@ -1,2 +1,81 @@
-@import "components/reset";
-@import "components/grid.min";
+@import "compass/css3";
+@import "partials/variables";
+@import "partials/reset";
+@import "partials/grid.min";
+
+body {
+	font-family: $body-font;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.5;
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $heading-font;
+	font-weight: 700;
+}
+
+
+/**** HEADER ****/
+
+header {
+	@extend .container-fluid;
+	background: $charcoal;
+	padding: 20px 20px 20px 35px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+
+	a.button {
+		background: $mint;
+		color: $white;
+		@include border-radius(8px);
+		padding: 20px;
+		display: inline-block;
+		float: right;
+		line-height: 1;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+}
+
+/**** HERO SECTION ****/
+
+#hero {
+	position: relative;
+	margin-top: 80px;
+	height: 95vh;
+	background: url(../images/paragon-hero.jpg) top center no-repeat;
+	background-size: cover;
+
+	h1 {
+		font-size: 38px;
+		font-weight: 700;
+		color: $white;
+		text-transform: uppercase;
+		line-height: 1;
+		position: relative;
+		top: 75%;
+		margin-left: 10%;
+		span {
+			font-size: 28px;
+			color: $silver;
+			font-weight: 400;
+			display: block;
+		}
+	}
+
+	a.scroll {
+		width: 35px;
+		height: 20px;
+		background: url(../images/icon-sprite.png) 0 0 no-repeat;
+		overflow: hidden;
+		position: absolute;
+		top: 90%;
+		left: 48%;
+		display: block;
+	}
+}

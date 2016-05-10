@@ -1,5 +1,6 @@
 var gulp = require('gulp'); // for gulp
 var sass = require('gulp-sass'); // for sass
+var compass = require('gulp-compass'); // for compass
 var sourcemaps = require('gulp-sourcemaps');
 var slim = require('gulp-slim');
 var plumber = require('gulp-plumber'); // sass error handling
@@ -24,18 +25,44 @@ gulp.task('slim', function(){
 		.pipe(gulp.dest('build'))
 });
 
-// convert sass to css
-gulp.task('sass', function(){
+// convert compass to css
+gulp.task('compass', function(){
 	return gulp.src('app/scss/**/*.scss')
-		.pipe(sourcemaps.init())
-		.pipe(plumber())
-		.pipe(sass({ouputStyle: ''}).on('error', sass.logError))
-		.pipe(sourcemaps.write())
+		//.pipe(sourcemaps.init())
+		.pipe(plumber({
+	    	errorHandler: function (error) {
+				console.log(error.message);
+				this.emit('end');
+	    	}
+	    }))
+		.pipe(compass({
+			css: 'build/css',
+			sass: 'app/scss',
+			image: 'build/images',
+			sourcemap: true,
+			style: 'compressed'
+		}))
+		.on('error', function(err) {
+	      // Would like to catch the error here 
+	    })
 		.pipe(gulp.dest('build/css'))
 		.pipe(browserSync.reload({
 			stream: true
 		}))
 });
+
+// convert sass to css
+//gulp.task('sass', function(){
+//	return gulp.src('app/scss/**/*.scss')
+//		.pipe(sourcemaps.init())
+//		.pipe(plumber())
+//		.pipe(sass({ouputStyle: ''}).on('error', sass.logError))
+//		.pipe(sourcemaps.write())
+//		.pipe(gulp.dest('build/css'))
+//		.pipe(browserSync.reload({
+//			stream: true
+//		}))
+//});
 
 // live reload
 gulp.task('browserSync', function(){
@@ -51,7 +78,7 @@ gulp.task('useref', function(){
 	return gulp.src('build/*.html')
 		.pipe(useref())
 		.pipe(gulpIf('*.js', uglify()))
-		.pipe(gulpIf('*.css', cssnano())
+		.pipe(gulpIf('*.css', cssnano()))
 		.pipe(gulp.dest('build'))
 		.pipe(browserSync.reload({
 			stream: true
@@ -79,16 +106,16 @@ gulp.task('clean:build', function(){
 });
 
 // watch for reload
-gulp.task('default', ['sass','slim','images','useref','browserSync'], function(){
+gulp.task('default', ['compass','slim','images','useref','browserSync'], function(){
 	gulp.watch('app/**/*.slim',['slim','useref']);
-	gulp.watch('app/scss/**/*.scss',['sass']);
+	gulp.watch('app/scss/**/*.scss',['compass']);
 	gulp.watch('app/js/*.js',['useref']);
 	gulp.watch('app/images/*',['images']);
 });
 
 // build files
 gulp.task('build', function(callback){
-	runSequence('clean:build', ['sass','slim', 'images', 'fonts'], 'useref',
+	runSequence('clean:build', ['compass','slim', 'images', 'fonts'], 'useref',
 		callback
 	)
 });
