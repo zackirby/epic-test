@@ -23,6 +23,7 @@ main > section {
 	@extend .container-fluid;
 	background: $white;
 	overflow: hidden;
+	position: relative;
 }
 
 a.scroll {
@@ -65,7 +66,6 @@ header {
 /**** HERO SECTION ****/
 
 #hero {
-	position: relative;
 	margin-top: 80px;
 	padding: 0;
 	height: 95vh;
@@ -102,9 +102,8 @@ header {
 /**** ABOUT SECTION ****/
 
 #about {
-	position: relative;
 	height: 95vh;
-	background: url(../images/floating-mtns-bg.jpg) top center no-repeat;
+	background: url(../images/floating-mtns-bg.jpg) top center no-repeat $white;
 	background-size: 100%;
 	padding-top: 25%;
 
@@ -145,6 +144,158 @@ header {
 			}
 		}
 	}
+}
+
+/**** LOCATION SECTION ****/
+
+#locations {
+	background: url(../images/gray-diagonal.png) top right no-repeat #f4f4f4;
+	background-size: contain;
+	padding-top: 350px;
+	padding-bottom: 500px;
+	margin-top: -90px;
+
+	h1 {
+		font-size: 50px;
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: 400;
+		margin-bottom: 50px;
+	}
+
+	.loc-column {
+		width: 18%;
+		float: left;
+		position: relative;
+		padding: 0 6%;
+
+		&:nth-of-type(1) {
+			left: 35%;
+		}
+
+		&:nth-of-type(2) {
+			right: 20%;
+			padding-top: 40px;
+
+			.loc + .loc {
+				margin-top: 175px;
+			}
+		}
+
+		&:nth-of-type(3) {
+			left: 0%;
+			padding-top: 120px;
+		}
+
+	}
+
+	.loc {
+		padding-top: 80px;
+		padding-bottom: 32px;
+		border-bottom: 1px solid $tundora;
+		background: url(../images/icon-location.png) center top no-repeat;
+		position: relative;
+		margin-bottom: 125px;
+		text-align: center;
+
+		&.hq {
+			margin-bottom: 80px;
+
+			h3 {
+				margin-bottom: 28px;				
+			}
+	
+			&:after {
+				border-left: 20px solid transparent;
+				border-right: 20px solid transparent;
+				border-bottom: 20px solid $scorpion;
+				border-top: 0;
+				position: absolute;
+				bottom: 0;
+				left: 45%;
+			}
+		}
+
+		&:after {
+			content: '';
+			display: table;
+			width: 0; 
+			height: 0; 
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			border-top: 20px solid $scorpion;
+			position: absolute;
+			bottom: -20px;
+			left: 45%;
+		}
+
+		h2 {
+			color: $mint;
+			font-size: 18px;
+			text-transform: uppercase;
+			font-weight: 400;
+			margin-bottom: 12px;
+		}
+
+		h3 {
+			font-size: 18px;
+			text-transform: uppercase;
+			font-weight: 400;
+			line-height: 1.25;
+		}
+
+		p {
+			text-align: justify;
+			font-size: 15px;
+			line-height: 1.75;
+		}
+	}
+}
+
+/**** CONTACT SECTION ****/
+
+#contact {
+	background: $charcoal;
+	background-size: contain;
+	color: $white;
+	overflow-y: visible;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		background: url(../images/charcoal-diagonal.png) left bottom no-repeat;
+		background-size: cover;
+		height: 900px;
+		top: -900px;
+		width: 100%;
+		left: 0;
+	}
+
+	.sporty {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+
+	h1 {
+		font-size: 50px;
+		font-weight: 400;
+		text-transform: uppercase;
+		margin-bottom: 22px;
+	}
+
+	p {
+		font-size: 16px;
+		line-height: 1.75;
+	}
+
+	.fp-tableCell {
+		vertical-align: top;
+		padding-left: 20%;
+		padding-right: 50%;
+	}
+
 }
 
 /**** FOOTER ****/
