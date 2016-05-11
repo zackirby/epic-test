@@ -1,13 +1,20 @@
 $(document).ready(function(){
 	$('main').fullpage({
-		anchors: ['top','about-us','our-locations','contact-us'],
-		sectionSelector: 'section',
+		sectionSelector: '#hero',
+		paddingTop: '80px',
 		autoScrolling: false,
 		scrollBar: true,
-		fitToSection: false
+		fitToSection: false,
+		verticalCentered: false
 	});
 	$('a.scroll').on('click', function(e){
 		e.preventDefault();
-		$.fn.fullpage.moveSectionDown();
+
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 500, 'swing');
 	})
 });

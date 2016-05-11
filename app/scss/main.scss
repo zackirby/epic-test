@@ -35,7 +35,7 @@ a.scroll {
 	margin: 0 auto;
 	position: absolute;
 	left: 48%;
-	top: 80%;
+	top: 90%;
 	z-index: 100;
 }
 
@@ -66,9 +66,8 @@ header {
 /**** HERO SECTION ****/
 
 #hero {
-	margin-top: 80px;
 	padding: 0;
-	height: 95vh;
+
 	.access {
 		background: url(../images/paragon-hero.jpg) top center no-repeat;
 	}
@@ -86,7 +85,7 @@ header {
 		text-transform: uppercase;
 		line-height: 1;
 		position: relative;
-		margin-top: 22%;
+		top: 75%;
 		margin-left: 10%;
 		@include text-shadow(rgba(0,0,0,.75) 2px 2px 0);
 		span {
@@ -102,10 +101,10 @@ header {
 /**** ABOUT SECTION ****/
 
 #about {
-	height: 95vh;
 	background: url(../images/floating-mtns-bg.jpg) top center no-repeat $white;
 	background-size: 100%;
-	padding-top: 25%;
+	padding-top: 15%;
+	padding-bottom: 420px;
 
 	h1 {
 		font-size: 50px;
@@ -127,13 +126,14 @@ header {
 	.content {
 		@extend .col-md-4;
 		@extend .col-md-push-2;
+		padding-top: 25%;
 	}
 
 	footer {
 		@extend .col-sm-12;
 		text-align: center;
 		position: relative;
-		top: 125px;
+		margin-top: 125px;
 
 		p {
 			font-size: 16px;
@@ -149,11 +149,28 @@ header {
 /**** LOCATION SECTION ****/
 
 #locations {
-	background: url(../images/gray-diagonal.png) top right no-repeat #f4f4f4;
-	background-size: contain;
-	padding-top: 350px;
+	background: #f4f4f4;
 	padding-bottom: 500px;
-	margin-top: -90px;
+	overflow: visible;
+
+	.diagonal {
+	    width: 100%;
+	    height: 400px;
+	    overflow: hidden;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    margin-top: -396px;
+	    left: 0;
+	}
+	.diagonal:after {
+	    content: "";
+	    display: block;
+	    width: 0;
+	    height: 0;
+	    border-top: 396px solid transparent;
+	    border-right: 1600px solid #f4f4f4;
+	}
 
 	h1 {
 		font-size: 50px;
@@ -258,24 +275,34 @@ header {
 	background: $charcoal;
 	background-size: contain;
 	color: $white;
-	overflow-y: visible;
+	overflow: visible;
 
-	&:before {
-		content: '';
-		display: block;
-		position: absolute;
-		background: url(../images/charcoal-diagonal.png) left bottom no-repeat;
-		background-size: cover;
-		height: 900px;
-		top: -900px;
-		width: 100%;
-		left: 0;
+	.diagonal {
+	    width: 100%;
+	    height: 842px;
+	    overflow: hidden;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    margin-top: -842px;
+	    left: 0;
+	}
+	.diagonal:after {
+	    content: "";
+	    display: block;
+	    width: 0;
+	    height: 0;
+	    border-top: 842px solid transparent;
+	    border-left: 1600px solid $charcoal;
 	}
 
 	.sporty {
 		position: absolute;
 		right: 0;
 		bottom: 0;
+		z-index: 1;
+		width: 50%;
+		max-width: 660px;
 	}
 
 	h1 {
@@ -290,10 +317,10 @@ header {
 		line-height: 1.75;
 	}
 
-	.fp-tableCell {
-		vertical-align: top;
-		padding-left: 20%;
-		padding-right: 50%;
+	.content {
+		@extend .col-md-4;
+		@extend .col-md-push-2;
+		padding-bottom: 375px;
 	}
 
 }

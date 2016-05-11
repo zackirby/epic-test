@@ -8,7 +8,7 @@ html lang="en-US" dir="ltr"
 		link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" type="text/css"
 		link rel="stylesheet" href="css/main.css"
 
-		script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
+		script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
 		script src="js/jquery.fullpage.min.js"
 
 	body
@@ -19,7 +19,7 @@ html lang="en-US" dir="ltr"
 
 		main
 			section#hero
-				a.scroll(href="#")
+				a.scroll(href="#ac")
 				.slide.access
 					h1 
 						span Paragon
@@ -30,7 +30,7 @@ html lang="en-US" dir="ltr"
 						|Get Paragon Now!
 
 			section#about
-				div.content
+				div#ac.content
 					h1 About
 					h2 
 						|Everything We Do 
@@ -93,15 +93,18 @@ html lang="en-US" dir="ltr"
 							br
 							|China
 
+				.diagonal
 			section#contact
 				img.sporty src="images/sports-figure.png" alt=""
-				h1 Contact Us
-				p We welcome anyone who plays our games or uses our game technology to engage with us at the Epic Games Forums. Our publishers provide technical support for our games, although answers to many commonly asked questions can be found here as well.
-				ul.phone
-					li 
-						|Tel
-						a(href="tel:+19198540070") +1 919 854 0070
-					li Fax +1 919 854 0055
+				.content
+					h1 Contact Us
+					p We welcome anyone who plays our games or uses our game technology to engage with us at the Epic Games Forums. Our publishers provide technical support for our games, although answers to many commonly asked questions can be found here as well.
+					ul.phone
+						li 
+							|Tel
+							a(href="tel:+19198540070") +1 919 854 0070
+						li Fax +1 919 854 0055
+				.diagonal
 
 		footer.page-footer
 			img src="images/epic-logo-62x72.png" alt="Epic Games"
