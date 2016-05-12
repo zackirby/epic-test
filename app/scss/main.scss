@@ -19,6 +19,11 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1;
 }
 
+main {
+	max-width: 2000px;
+	margin: 0 auto;
+}
+
 main > section {
 	@extend .container-fluid;
 	background: $white;
@@ -85,9 +90,13 @@ header {
 		text-transform: uppercase;
 		line-height: 1;
 		position: relative;
-		top: 75%;
 		margin-left: 10%;
 		@include text-shadow(rgba(0,0,0,.75) 2px 2px 0);
+		top: 65%;
+		@media(min-width: $screen-sm-min) {
+			top: 75%;
+		}
+
 		span {
 			font-size: 28px;
 			color: $silver;
@@ -104,7 +113,45 @@ header {
 	background: url(../images/floating-mtns-bg.jpg) top center no-repeat $white;
 	background-size: 100%;
 	padding-top: 15%;
-	padding-bottom: 420px;
+	overflow: visible;
+	padding-bottom: 20px;
+
+	@media(min-width: $screen-md-min) {
+		padding-bottom: 0;
+	}
+
+	@media(min-width: $screen-lg-min) {
+		padding-bottom: 50px;
+	}
+
+	.diagonal {
+	    width: 100%;
+	    height: 400px;
+	    overflow: hidden;
+	    position: absolute;
+	    left: 0;
+	    z-index: 1;
+	    bottom: -20%;
+		@media(min-width: $screen-sm-min) {
+			bottom: -30%;
+		}
+
+	    @media(min-width: $screen-md-min) {
+			bottom: -32.3%;
+    	}
+
+	    @media(min-width: $screen-md-min) {
+			bottom: -30%;
+    	}
+	}
+	.diagonal:after {
+	    content: "";
+	    display: block;
+	    width: 0;
+	    height: 0;
+	    border-bottom: 400px solid transparent;
+	    border-left: 2000px solid $white;
+	}
 
 	h1 {
 		font-size: 50px;
@@ -125,15 +172,31 @@ header {
 
 	.content {
 		@extend .col-md-4;
+		@extend .col-sm-8;
 		@extend .col-md-push-2;
-		padding-top: 25%;
+		padding-top: 45%;
+		z-index: 10;
+
+		@media(min-width: $screen-sm-min) {
+			padding-top: 25%;
+		}
 	}
 
 	footer {
 		@extend .col-sm-12;
 		text-align: center;
 		position: relative;
-		margin-top: 125px;
+		margin-top: 65px;
+		z-index: 10;
+		padding: 0;
+
+		@media(min-width: $screen-sm-min) {
+			margin-top: 125px;
+		}
+
+	    @media(min-width: $screen-lg-min) {
+			margin-top: 200px;
+    	}
 
 		p {
 			font-size: 16px;
@@ -150,27 +213,21 @@ header {
 
 #locations {
 	background: #f4f4f4;
-	padding-bottom: 500px;
+	padding-bottom: 280px;
 	overflow: visible;
+	padding-top: 200px;
 
-	.diagonal {
-	    width: 100%;
-	    height: 400px;
-	    overflow: hidden;
-	    position: absolute;
-	    right: 0;
-	    top: 0;
-	    margin-top: -396px;
-	    left: 0;
+	@media(min-width: $screen-sm-min) {
+		padding-bottom: 400px;
+		padding-top: 300px;
 	}
-	.diagonal:after {
-	    content: "";
-	    display: block;
-	    width: 0;
-	    height: 0;
-	    border-top: 396px solid transparent;
-	    border-right: 1600px solid #f4f4f4;
+
+
+	@media(min-width: $screen-md-min) {
+		padding-bottom: 400px;
+		padding-top: 400px;
 	}
+
 
 	h1 {
 		font-size: 50px;
@@ -178,30 +235,63 @@ header {
 		text-transform: uppercase;
 		font-weight: 400;
 		margin-bottom: 50px;
+		z-index: 10;
 	}
 
 	.loc-column {
-		width: 18%;
-		float: left;
 		position: relative;
-		padding: 0 6%;
+		z-index: 10;
+		width: auto;
+		padding: 0 3%;
+		left: auto;
+		right: auto;
 
-		&:nth-of-type(1) {
-			left: 35%;
-		}
-
-		&:nth-of-type(2) {
-			right: 20%;
-			padding-top: 40px;
-
-			.loc + .loc {
-				margin-top: 175px;
+		@media(min-width: $screen-sm-min) {
+			float: left;
+			width: 44%;
+			padding: 0 3%;
+			&:nth-of-type(1) {
+				left: auto;
 			}
+
+			&:nth-of-type(2) {
+				right: auto;
+				padding-top: 40px;
+
+				.loc + .loc {
+					margin-top: 0;
+				}
+			}
+
+			&:nth-of-type(3) {
+				left: 0%;
+				padding-top: 0;
+			}
+
 		}
 
-		&:nth-of-type(3) {
-			left: 0%;
-			padding-top: 120px;
+		@media(min-width: $screen-md-min) {
+			width: 18%;
+			padding: 0 6%;
+
+			&:nth-of-type(1) {
+				left: 35%;
+			}
+
+			&:nth-of-type(2) {
+				right: 20%;
+				padding-top: 40px;
+
+				.loc + .loc {
+					margin-top: 175px;
+				}
+			}
+
+			&:nth-of-type(3) {
+				left: 0%;
+				padding-top: 120px;
+			}
+
 		}
 
 	}
@@ -279,12 +369,12 @@ header {
 
 	.diagonal {
 	    width: 100%;
-	    height: 842px;
+	    height: 800px;
 	    overflow: hidden;
 	    position: absolute;
 	    right: 0;
 	    top: 0;
-	    margin-top: -842px;
+	    margin-top: -46%;
 	    left: 0;
 	}
 	.diagonal:after {
@@ -292,8 +382,8 @@ header {
 	    display: block;
 	    width: 0;
 	    height: 0;
-	    border-top: 842px solid transparent;
-	    border-left: 1600px solid $charcoal;
+	    border-top: 800px solid transparent;
+	    border-left: 2000px solid $charcoal;
 	}
 
 	.sporty {
@@ -315,12 +405,41 @@ header {
 	p {
 		font-size: 16px;
 		line-height: 1.75;
+		margin-bottom: 28px;
 	}
 
 	.content {
-		@extend .col-md-4;
-		@extend .col-md-push-2;
-		padding-bottom: 375px;
+		@extend .col-lg-push-2;
+		@extend .col-md-push-1;
+		padding-bottom: 295px;
+		z-index: 10;
+		position: relative;
+		min-height: 1px;
+		padding-left: 15px;
+		padding-right: 15px;
+		width: auto;
+
+		@media(min-width: 540px) {
+			width: 60%;
+		}
+
+		@media(min-width: $screen-sm-min) {
+			padding-bottom: 375px;
+			width: 50%;
+		}
+
+		@media(min-width: $screen-md-min) {
+			width: 33.3%;
+		}
+
+		.phone li {
+			font-size: 16px;
+			font-weight: 700;
+			a {
+				color: $white;
+				text-decoration: none;
+			}
+		}
 	}
 
 }
@@ -331,13 +450,18 @@ footer.page-footer {
 	@extend .container-fluid;
 	background: $mineshaft;
 	color: $alto;
-	padding: 96px 90px 96px 120px;
+	padding: 76px 60px 76px 60px;
 	font-size: 12px;
 	line-height: 2;
+
+	@media(min-width: $screen-md-min) {
+		padding: 96px 90px 96px 120px;
+	}
 
 	img {
 		float: left;
 		margin-right: 40px;
+		margin-bottom: 20px;
 	}
 
 	li {
