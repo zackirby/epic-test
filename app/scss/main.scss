@@ -1,8 +1,6 @@
 @import "compass/css3";
-@import "compass/utilities/color/contrast";
 @import "partials/variables";
 @import "partials/reset";
-@import "partials/grid.min";
 @import "partials/jquery.fullpage";
 
 body {
@@ -26,16 +24,20 @@ main {
 }
 
 main > section {
-	@extend .container-fluid;
 	background: $white;
 	overflow: hidden;
 	position: relative;
+	margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    float: left;
 }
 
 a.scroll {
 	width: 35px;
 	height: 20px;
-	background: url(../images/icon-sprite.png) 0 0 no-repeat;
+	background: url(../images/icon-chevron-sprite.png) 0 0 no-repeat;
 	overflow: hidden;
 	display: block;
 	margin: 0 auto;
@@ -98,6 +100,7 @@ header {
 
 #hero {
 	padding: 0;
+	float: none;
 
 	.access {
 		background: url(../images/paragon-hero.jpg) top center no-repeat;
@@ -152,22 +155,18 @@ header {
 
 	.diagonal {
 	    width: 100%;
-	    height: 400px;
+	    height: 500px;
 	    overflow: hidden;
 	    position: absolute;
 	    left: 0;
 	    z-index: 1;
-	    bottom: -20%;
+	    bottom: -30%;
 		@media(min-width: $screen-sm-min) {
-			bottom: -30%;
+			bottom: -32%;
 		}
 
 	    @media(min-width: $screen-md-min) {
-			bottom: -32.3%;
-    	}
-
-	    @media(min-width: $screen-md-min) {
-			bottom: -30%;
+			bottom: -38%;
     	}
 	}
 	.diagonal:after {
@@ -175,8 +174,8 @@ header {
 	    display: block;
 	    width: 0;
 	    height: 0;
-	    border-bottom: 400px solid transparent;
-	    border-left: 2000px solid $white;
+	    border-bottom: 460px solid transparent;
+	    border-left: 1800px solid $white;
 	}
 
 	h1 {
@@ -197,19 +196,29 @@ header {
 	}
 
 	.content {
-		@extend .col-md-4;
-		@extend .col-sm-8;
-		@extend .col-md-push-2;
 		padding-top: 45%;
 		z-index: 10;
+		position: relative;
+	    min-height: 1px;
+	    padding-left: 15px;
+	    padding-right: 15px;
 
 		@media(min-width: $screen-sm-min) {
 			padding-top: 25%;
+			width: 66.66666667%;
+			float: left;
+		}
+		@media(min-width: $screen-md-min) {
+			float: left;
+			left: 16.66667%;
+			width: 33.33333%;
 		}
 	}
 
 	footer {
-		@extend .col-sm-12;
+		width: 100%;
+		float: left;
+		min-height: 1px;
 		text-align: center;
 		position: relative;
 		margin-top: 65px;
@@ -245,13 +254,13 @@ header {
 
 	@media(min-width: $screen-sm-min) {
 		padding-bottom: 400px;
-		padding-top: 300px;
+		padding-top: 200px;
 	}
 
 
 	@media(min-width: $screen-md-min) {
 		padding-bottom: 400px;
-		padding-top: 400px;
+		padding-top: 300px;
 	}
 
 
@@ -435,8 +444,6 @@ header {
 	}
 
 	.content {
-		@extend .col-lg-push-2;
-		@extend .col-md-push-1;
 		padding-bottom: 295px;
 		z-index: 10;
 		position: relative;
@@ -456,6 +463,11 @@ header {
 
 		@media(min-width: $screen-md-min) {
 			width: 33.3%;
+			left: 8.33333333%;
+		}
+
+		@media(min-width: $screen-lg-min) {
+			left: 16.66666667%;
 		}
 
 		.phone li {
@@ -473,12 +485,14 @@ header {
 /**** FOOTER ****/
 
 footer.page-footer {
-	@extend .container-fluid;
+    margin-right: auto;
+    margin-left: auto;
 	background: $mineshaft;
 	color: $alto;
 	padding: 76px 60px 76px 60px;
 	font-size: 12px;
 	line-height: 2;
+	clear: both;
 
 	@media(min-width: $screen-md-min) {
 		padding: 96px 90px 96px 120px;
